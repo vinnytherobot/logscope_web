@@ -10,25 +10,22 @@ export function Hero() {
         backgroundSize: '60px 60px'
       }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center mt-24 md:mt-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center gap-8"
+          className="flex flex-col items-center gap-6 w-full"
         >
-          <motion.img
-            src={logoscopeLogo}
-            alt="LogScope Logo"
-            className="w-32 h-32 md:w-40 md:h-40 drop-shadow-2xl"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
-
           <div>
-            <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight flex items-center justify-center">
               <span className="text-primary text-glow-cyan">Log</span>
               <span className="text-secondary text-glow-magenta">Scope</span>
+              <img
+                src={logoscopeLogo}
+                alt="LogScope Logo"
+                className="w-16 h-16 drop-shadow-2xl"
+              />
             </h1>
             <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Beautiful, simple, and powerful log viewer for the terminal.
