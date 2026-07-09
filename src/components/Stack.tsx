@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 const stack = [
   { name: "Rich", url: "https://github.com/Textualize/rich", desc: "UI Layouts, Colors, Highlighters, HTML Export", color: "text-secondary" },
@@ -16,9 +17,12 @@ export function Stack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Built with <span className="text-primary text-glow-cyan">great tools</span>
           </h2>
+          <p className="text-muted-foreground mb-12">
+            Powered by the best Python libraries for CLI and terminal UI.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -32,9 +36,12 @@ export function Stack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="rounded-lg border border-border bg-card p-4 text-left hover:border-primary/30 transition-colors group"
+              className="rounded-lg border border-border bg-card p-4 text-left hover:border-primary/30 transition-all duration-300 group hover:shadow-lg hover:shadow-primary/5"
             >
-              <span className={`font-mono font-semibold text-sm ${item.color}`}>{item.name}</span>
+              <div className="flex items-center justify-between">
+                <span className={`font-mono font-semibold text-sm ${item.color}`}>{item.name}</span>
+                <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
               <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
             </motion.a>
           ))}

@@ -8,6 +8,7 @@ const features = [
     description: "Tail files natively or stream huge data via pipes. Zero overhead.",
     color: "text-accent" as const,
     glow: "glow-green" as const,
+    borderHover: "hover:border-accent/40",
   },
   {
     icon: Palette,
@@ -15,6 +16,7 @@ const features = [
     description: "Auto-identifies INFO, WARNING, ERROR, CRITICAL, DEBUG with beautiful typography.",
     color: "text-primary" as const,
     glow: "glow-cyan" as const,
+    borderHover: "hover:border-primary/40",
   },
   {
     icon: FileJson,
@@ -22,6 +24,7 @@ const features = [
     description: "Reads bracket logs and parses NDJSON / JSON logs out of the box.",
     color: "text-secondary" as const,
     glow: "glow-magenta" as const,
+    borderHover: "hover:border-secondary/40",
   },
   {
     icon: Sparkles,
@@ -29,6 +32,7 @@ const features = [
     description: "Highlights IPs, URLs, timestamps, UUIDs, and emails with dynamic colors.",
     color: "text-primary" as const,
     glow: "glow-cyan" as const,
+    borderHover: "hover:border-primary/40",
   },
   {
     icon: LayoutDashboard,
@@ -36,6 +40,7 @@ const features = [
     description: "Real-time log stream with a live statistics panel tracking error counts.",
     color: "text-accent" as const,
     glow: "glow-green" as const,
+    borderHover: "hover:border-accent/40",
   },
   {
     icon: FileCode,
@@ -43,6 +48,7 @@ const features = [
     description: "Export beautiful log output directly to HTML to share with your team.",
     color: "text-secondary" as const,
     glow: "glow-magenta" as const,
+    borderHover: "hover:border-secondary/40",
   },
   {
     icon: Filter,
@@ -50,6 +56,7 @@ const features = [
     description: "Filter by level, search by substring or regex, invert matches grep-style.",
     color: "text-accent" as const,
     glow: "glow-green" as const,
+    borderHover: "hover:border-accent/40",
   },
   {
     icon: Terminal,
@@ -57,13 +64,15 @@ const features = [
     description: "Use --no-color for unstyled text when piping to other tools.",
     color: "text-primary" as const,
     glow: "glow-cyan" as const,
+    borderHover: "hover:border-primary/40",
   },
   {
     icon: Archive,
     title: "Gzip Support",
-    description: "Read .gz files directly—no manual zcat pipe needed.",
+    description: "Read .gz files directly — no manual zcat pipe needed.",
     color: "text-secondary" as const,
     glow: "glow-magenta" as const,
+    borderHover: "hover:border-secondary/40",
   },
 ];
 
@@ -93,9 +102,9 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group rounded-xl border border-border bg-card p-6 hover:border-primary/30 transition-colors"
+              className={`group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 ${feature.borderHover}`}
             >
-              <div className={`inline-flex p-2.5 rounded-lg bg-muted mb-4 ${feature.color}`}>
+              <div className={`inline-flex p-2.5 rounded-lg bg-muted mb-4 ${feature.color} group-hover:${feature.glow} transition-shadow`}>
                 <feature.icon className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-semibold font-display mb-2">{feature.title}</h3>
