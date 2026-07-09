@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Star, GitFork, GitPullRequest, ExternalLink } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import logoscopeLogo from "@/assets/logscope-logo.png";
+import { ThemeToggle } from "./ThemeToggle";
 
 const REPO = "vinnytherobot/logscope";
 const CACHE_KEY = "logscope_gh_stats";
@@ -131,6 +132,7 @@ export function Navbar() {
 
         {/* GitHub stats + link */}
         <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
           {loading ? (
             <div className="flex items-center gap-3">
               <Skeleton className="h-4 w-10 bg-muted/50" />

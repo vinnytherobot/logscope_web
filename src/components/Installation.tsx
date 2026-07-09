@@ -45,7 +45,7 @@ export function Installation() {
             <span className="text-accent text-glow-green">Installation</span>
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Python 3.9+ and pip required. Up and running in seconds.
+            Python 3.9+ required. Up and running in seconds.
           </p>
         </motion.div>
 
@@ -56,18 +56,24 @@ export function Installation() {
           className="space-y-4"
         >
           <CodeBlock
-            title="bash"
+            title="install via pip"
+            code={`pip install logscope-cli`}
+          />
+
+          <CodeBlock
+            title="or install from source"
             code={`# Clone the repository
 git clone https://github.com/vinnytherobot/logscope.git
 cd logscope
 
 # Install via Poetry
 poetry install
-poetry run logscope --help
+poetry run logscope --help`}
+          />
 
-# Or install globally via pip
-pip install -e .`
-            }
+          <CodeBlock
+            title="verify installation"
+            code={`logscope --version`}
           />
         </motion.div>
       </div>

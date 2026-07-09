@@ -5,30 +5,48 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
       {/* Grid background */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]" style={{
         backgroundImage: `linear-gradient(hsl(185 100% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(185 100% 50%) 1px, transparent 1px)`,
         backgroundSize: '60px 60px'
       }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center mt-24 md:mt-16">
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center gap-6 w-full"
+          className="flex flex-col items-center gap-8"
         >
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-muted/50 text-xs font-mono text-muted-foreground"
+          >
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            Open source · Terminal-native · MIT License
+          </motion.div>
+
+          <motion.img
+            src={logoscopeLogo}
+            alt="LogScope Logo"
+            className="w-28 h-28 md:w-36 md:h-36 drop-shadow-2xl"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+
           <div>
-            <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight flex items-center justify-center">
+            <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight">
               <span className="text-primary text-glow-cyan">Log</span>
               <span className="text-secondary text-glow-magenta">Scope</span>
-              <img
-                src={logoscopeLogo}
-                alt="LogScope Logo"
-                className="w-16 h-16 drop-shadow-2xl"
-              />
             </h1>
             <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Beautiful, simple, and powerful log viewer for the terminal.
+              <br className="hidden sm:block" />
               Turn messy logs into structured, colorful, readable output.
             </p>
           </div>
@@ -65,7 +83,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-16 max-w-3xl mx-auto"
         >
-          <div className="rounded-xl overflow-hidden border border-border bg-card">
+          <div className="rounded-xl overflow-hidden border border-border bg-card shadow-2xl shadow-primary/5">
             <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
               <div className="w-3 h-3 rounded-full bg-destructive/70" />
               <div className="w-3 h-3 rounded-full bg-accent/50" />
@@ -99,7 +117,10 @@ export function Hero() {
                 <span className="text-primary">192.168.1.42</span>
               </div>
               <div className="mt-2 text-muted-foreground/50">
-                ▌ Watching for changes...
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                >▌</motion.span> Watching for changes...
               </div>
             </div>
           </div>

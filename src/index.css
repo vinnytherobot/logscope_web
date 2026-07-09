@@ -13,6 +13,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --background: 220 20% 7%;
     --foreground: 180 10% 88%;
 
@@ -59,6 +60,50 @@
     --sidebar-border: 220 15% 18%;
     --sidebar-ring: 185 100% 50%;
   }
+
+  .light {
+    color-scheme: light;
+    --background: 0 0% 98%;
+    --foreground: 220 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+
+    --primary: 185 85% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 300 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 130 70% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 185 85% 40%;
+
+    --glow-cyan: 0 0 15px hsl(185 85% 40% / 0.2), 0 0 40px hsl(185 85% 40% / 0.08);
+    --glow-green: 0 0 15px hsl(130 70% 35% / 0.2), 0 0 40px hsl(130 70% 35% / 0.08);
+    --glow-magenta: 0 0 15px hsl(300 80% 40% / 0.2), 0 0 40px hsl(300 80% 40% / 0.08);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 15% 12%;
+    --sidebar-primary: 185 85% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 94%;
+    --sidebar-accent-foreground: 220 15% 12%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 185 85% 40%;
+  }
   * {
     @apply border-border outline-ring/50;
   }
@@ -70,6 +115,7 @@
 
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 
   code, pre, .font-mono {

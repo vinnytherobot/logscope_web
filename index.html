@@ -1,10 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/logscope-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logscope</title>
+    <title>Logscope — Beautiful Terminal Log Viewer</title>
+    <meta name="description" content="Beautiful, simple, and powerful log viewer for the terminal. Turn messy logs into structured, colorful, readable output." />
+    <meta property="og:title" content="Logscope — Beautiful Terminal Log Viewer" />
+    <meta property="og:description" content="Beautiful, simple, and powerful log viewer for the terminal. Turn messy logs into structured, colorful, readable output." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Logscope — Beautiful Terminal Log Viewer" />
+    <meta name="twitter:description" content="Beautiful, simple, and powerful log viewer for the terminal." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <script>
+      (() => {
+        const key = 'logscope-theme';
+        const saved = localStorage.getItem(key);
+        const theme = saved === 'light' || saved === 'dark' ? saved : 'dark';
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

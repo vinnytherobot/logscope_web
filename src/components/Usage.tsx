@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Check, Copy } from "lucide-react";
 
 const examples = [
   {
@@ -29,6 +31,26 @@ const examples = [
   },
 ];
 
+const CopyButton = ({ text }: { text: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="absolute top-2 right-2 p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-all opacity-0 group-hover:opacity-100"
+      title="Copy command"
+    >
+      {copied ? <Check className="w-3.5 h-3.5 text-accent" /> : <Copy className="w-3.5 h-3.5" />}
+    </button>
+  );
+};
+
 export function Usage() {
   return (
     <section className="py-24 px-6" id="usage">
@@ -42,6 +64,9 @@ export function Usage() {
           <h2 className="text-3xl md:text-4xl font-bold font-display">
             Usage & <span className="text-secondary text-glow-magenta">Examples</span>
           </h2>
+          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+            From simple file reading to complex pipelines — logscope handles it all.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -59,11 +84,12 @@ export function Usage() {
               </h3>
               <div className="space-y-3">
                 {group.commands.map((ex) => (
-                  <div key={ex.cmd}>
+                  <div key={ex.cmd} className="group relative">
                     <p className="text-xs text-muted-foreground mb-1">{ex.desc}</p>
                     <code className="block text-xs font-mono text-accent bg-muted/50 rounded px-3 py-2 overflow-x-auto">
                       $ {ex.cmd}
                     </code>
+                    <CopyButton text={ex.cmd} />
                   </div>
                 ))}
               </div>
